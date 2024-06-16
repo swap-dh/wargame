@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <title>Capture the Packet</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <button type="button" class="button" onclick="findFlag()">Is There flag?</button>
+    <p id="response"></p>
+    <script>
+        function findFlag() {
+            fetch('/find_flag')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("response").innerHTML = data.message;
+                });
+        }
+    </script>
+</body>
+</html>
